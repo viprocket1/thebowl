@@ -61,7 +61,7 @@ const HeroScreen = ({ onNavigate }) => (
         </div>
         <div className="flex-none p-6 bg-white shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
             <button onClick={() => onNavigate('selection')} className="w-full bg-teal-500 text-white font-bold py-4 px-6 rounded-lg text-lg hover:bg-teal-600 transition duration-300 shadow-lg shadow-teal-500/30">
-                Build Your Bowl
+                Make Your Bowl
             </button>
         </div>
     </div>
