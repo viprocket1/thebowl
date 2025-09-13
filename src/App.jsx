@@ -2,52 +2,53 @@ import React, { useState, useEffect } from 'react';
 
 const ingredients = {
     bases: [
-        { name: "Mixed Greens", price: 150, nutrition: { calories: 15, protein: 2, carbs: 3, fats: 0 } },
-        { name: "Quinoa", price: 180, nutrition: { calories: 120, protein: 4, carbs: 21, fats: 2 } },
-        { name: "Romaine Lettuce", price: 160, nutrition: { calories: 17, protein: 1, carbs: 3, fats: 0 } },
-        { name: "Baby Spinach", price: 170, nutrition: { calories: 23, protein: 3, carbs: 4, fats: 0 } },
+        { name: "Mixed Greens", nutrition: { calories: 15, protein: 2, carbs: 3, fats: 0 } },
+        { name: "Quinoa", nutrition: { calories: 120, protein: 4, carbs: 21, fats: 2 } },
+        { name: "Romaine Lettuce", nutrition: { calories: 17, protein: 1, carbs: 3, fats: 0 } },
+        { name: "Baby Spinach", nutrition: { calories: 23, protein: 3, carbs: 4, fats: 0 } },
     ],
     veggies: [
-        { name: "Cherry Tomatoes", price: 40, nutrition: { calories: 10, protein: 0.5, carbs: 2, fats: 0 } },
-        { name: "Cucumber", price: 30, nutrition: { calories: 8, protein: 0.3, carbs: 1.5, fats: 0 } },
-        { name: "Carrots", price: 30, nutrition: { calories: 15, protein: 0.3, carbs: 3.5, fats: 0 } },
-        { name: "Red Onion", price: 20, nutrition: { calories: 12, protein: 0.3, carbs: 3, fats: 0 } },
-        { name: "Bell Peppers", price: 50, nutrition: { calories: 10, protein: 0.5, carbs: 2.5, fats: 0 } },
-        { name: "Broccoli", price: 50, nutrition: { calories: 15, protein: 1.5, carbs: 3, fats: 0 } },
-        { name: "Sweet Corn", price: 40, nutrition: { calories: 30, protein: 1, carbs: 7, fats: 0.5 } },
-        { name: "Red Cabbage", price: 35, nutrition: { calories: 10, protein: 0.5, carbs: 2, fats: 0 } },
-        { name: "Jalapenos", price: 45, nutrition: { calories: 5, protein: 0.2, carbs: 1, fats: 0 } },
-        { name: "Black Olives", price: 50, nutrition: { calories: 25, protein: 0.2, carbs: 1, fats: 2.5 } },
-        { name: "Sprouted Moong", price: 40, nutrition: { calories: 30, protein: 3, carbs: 6, fats: 0.2 } },
-        { name: "Sprouted Matki", price: 40, nutrition: { calories: 35, protein: 3.5, carbs: 7, fats: 0.2 } },
-        { name: "Beetroot", price: 35, nutrition: { calories: 15, protein: 0.5, carbs: 3.5, fats: 0 } },
-        { name: "Zucchini", price: 45, nutrition: { calories: 8, protein: 0.6, carbs: 1.5, fats: 0 } },
+        { name: "Cherry Tomatoes", nutrition: { calories: 10, protein: 0.5, carbs: 2, fats: 0 } },
+        { name: "Cucumber", nutrition: { calories: 8, protein: 0.3, carbs: 1.5, fats: 0 } },
+        { name: "Carrots", nutrition: { calories: 15, protein: 0.3, carbs: 3.5, fats: 0 } },
+        { name: "Red Onion", nutrition: { calories: 12, protein: 0.3, carbs: 3, fats: 0 } },
+        { name: "Bell Peppers", nutrition: { calories: 10, protein: 0.5, carbs: 2.5, fats: 0 } },
+        { name: "Broccoli", nutrition: { calories: 15, protein: 1.5, carbs: 3, fats: 0 } },
+        { name: "Sweet Corn", nutrition: { calories: 30, protein: 1, carbs: 7, fats: 0.5 } },
+        { name: "Red Cabbage", nutrition: { calories: 10, protein: 0.5, carbs: 2, fats: 0 } },
+        { name: "Jalapenos", nutrition: { calories: 5, protein: 0.2, carbs: 1, fats: 0 } },
+        { name: "Black Olives", nutrition: { calories: 25, protein: 0.2, carbs: 1, fats: 2.5 } },
+        { name: "Sprouted Moong", nutrition: { calories: 30, protein: 3, carbs: 6, fats: 0.2 } },
+        { name: "Sprouted Matki", nutrition: { calories: 35, protein: 3.5, carbs: 7, fats: 0.2 } },
+        { name: "Beetroot", nutrition: { calories: 15, protein: 0.5, carbs: 3.5, fats: 0 } },
+        { name: "Zucchini", nutrition: { calories: 8, protein: 0.6, carbs: 1.5, fats: 0 } },
+        { name: "Mushrooms", nutrition: { calories: 22, protein: 3, carbs: 3, fats: 0.3 } },
     ],
     fruits: [
-        { name: "Avocado", price: 80, nutrition: { calories: 160, protein: 2, carbs: 9, fats: 15 } },
-        { name: "Pomegranate", price: 60, nutrition: { calories: 35, protein: 0.5, carbs: 8, fats: 0.5 } },
-        { name: "Apple", price: 40, nutrition: { calories: 50, protein: 0.3, carbs: 14, fats: 0.2 } },
-        { name: "Mandarin Oranges", price: 50, nutrition: { calories: 40, protein: 0.5, carbs: 10, fats: 0 } },
+        { name: "Avocado", nutrition: { calories: 160, protein: 2, carbs: 9, fats: 15 } },
+        { name: "Pomegranate", nutrition: { calories: 35, protein: 0.5, carbs: 8, fats: 0.5 } },
+        { name: "Apple", nutrition: { calories: 50, protein: 0.3, carbs: 14, fats: 0.2 } },
+        { name: "Mandarin Oranges", nutrition: { calories: 40, protein: 0.5, carbs: 10, fats: 0 } },
     ],
     proteins: [
-        { name: "Grilled Chicken", price: 120, nutrition: { calories: 140, protein: 25, carbs: 0, fats: 4 } },
-        { name: "Protein Rich Paneer", price: 100, nutrition: { calories: 200, protein: 14, carbs: 3, fats: 15 } },
-        { name: "Tofu", price: 90, nutrition: { calories: 70, protein: 8, carbs: 2, fats: 4 } },
-        { name: "Boiled Eggs (2)", price: 70, nutrition: { calories: 155, protein: 13, carbs: 1, fats: 11 } },
-        { name: "Chickpeas", price: 60, nutrition: { calories: 135, protein: 7, carbs: 22, fats: 2 } },
+        { name: "Grilled Chicken", nutrition: { calories: 140, protein: 25, carbs: 0, fats: 4 } },
+        { name: "Protein Rich Paneer", nutrition: { calories: 200, protein: 14, carbs: 3, fats: 15 } },
+        { name: "Tofu", nutrition: { calories: 70, protein: 8, carbs: 2, fats: 4 } },
+        { name: "Boiled Eggs (2)", nutrition: { calories: 155, protein: 13, carbs: 1, fats: 11 } },
+        { name: "Chickpeas", nutrition: { calories: 135, protein: 7, carbs: 22, fats: 2 } },
     ],
     dressings: [
-        { name: "Lemon Vinaigrette", price: 30, nutrition: { calories: 70, protein: 0, carbs: 1, fats: 7 } },
-        { name: "Mint Hung Curd", price: 40, nutrition: { calories: 40, protein: 3, carbs: 3, fats: 2 } },
-        { name: "Hung Curd", price: 35, nutrition: { calories: 35, protein: 3, carbs: 2, fats: 2 } },
-        { name: "Balsamic Glaze", price: 45, nutrition: { calories: 40, protein: 0, carbs: 9, fats: 0 } },
+        { name: "Lemon Vinaigrette", nutrition: { calories: 70, protein: 0, carbs: 1, fats: 7 } },
+        { name: "Mint Hung Curd", nutrition: { calories: 40, protein: 3, carbs: 3, fats: 2 } },
+        { name: "Hung Curd", nutrition: { calories: 35, protein: 3, carbs: 2, fats: 2 } },
+        { name: "Balsamic Glaze", nutrition: { calories: 40, protein: 0, carbs: 9, fats: 0 } },
     ],
     toppings: [
-        { name: "Sprinkled Black Pepper", price: 10, nutrition: { calories: 5, protein: 0.1, carbs: 1, fats: 0 } },
-        { name: "Lemon Juice", price: 15, nutrition: { calories: 3, protein: 0, carbs: 1, fats: 0 } },
-        { name: "Green Chilli", price: 10, nutrition: { calories: 2, protein: 0.1, carbs: 0.5, fats: 0 } },
-        { name: "Fresh Mint Leaves", price: 20, nutrition: { calories: 2, protein: 0.1, carbs: 0.5, fats: 0 } },
-        { name: "Mixed Seeds", price: 50, nutrition: { calories: 50, protein: 2, carbs: 2, fats: 4 } },
+        { name: "Sprinkled Black Pepper", nutrition: { calories: 5, protein: 0.1, carbs: 1, fats: 0 } },
+        { name: "Lemon Juice", nutrition: { calories: 3, protein: 0, carbs: 1, fats: 0 } },
+        { name: "Green Chilli", nutrition: { calories: 2, protein: 0.1, carbs: 0.5, fats: 0 } },
+        { name: "Fresh Mint Leaves", nutrition: { calories: 2, protein: 0.1, carbs: 0.5, fats: 0 } },
+        { name: "Mixed Seeds", nutrition: { calories: 50, protein: 2, carbs: 2, fats: 4 } },
     ],
 };
 
@@ -67,7 +68,7 @@ const HeroScreen = ({ onNavigate }) => (
     </div>
 );
 
-const SelectionScreen = ({ selectedItems, onSelectItem, totalPrice, totalNutrition, onNavigateToCheckout }) => {
+const SelectionScreen = ({ selectedItems, onSelectItem, totalNutrition, onNavigateToCheckout }) => {
     const VEGGIE_LIMIT = 5;
     const selectedVeggiesCount = selectedItems.filter(item => ingredients.veggies.some(v => v.name === item.name)).length;
     const isBaseSelected = selectedItems.some(item => ingredients.bases.some(b => b.name === item.name));
@@ -100,7 +101,6 @@ const SelectionScreen = ({ selectedItems, onSelectItem, totalPrice, totalNutriti
                             >
                                 <div>
                                     <span className="font-semibold block">{item.name}</span>
-                                    <span className="text-sm">{isSelected ? 'Selected' : `₹${item.price}`}</span>
                                 </div>
                                 <div className={`text-xs mt-2 ${isSelected ? 'text-white/80' : 'text-gray-400'}`}>
                                     <span>{item.nutrition.calories} cal</span> | 
@@ -129,17 +129,11 @@ const SelectionScreen = ({ selectedItems, onSelectItem, totalPrice, totalNutriti
                 {renderSection("Toppings & Seeds", ingredients.toppings, 'toppings')}
             </div>
             <div className="fixed bottom-0 left-0 right-0 bg-white p-4 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] flex justify-between items-center">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4">
-                    <div>
-                        <span className="text-gray-600 text-sm">Total:</span>
-                        <span className="font-bold text-xl ml-2 text-gray-800">₹{totalPrice}</span>
-                    </div>
-                    <div className="text-xs text-gray-500 mt-1 sm:mt-0">
-                        <span title="Calories" className="font-semibold">{Math.round(totalNutrition.calories)}</span> cal | 
-                        <span title="Protein" className="font-semibold"> {Math.round(totalNutrition.protein)}</span>g Protein | 
-                        <span title="Carbs" className="font-semibold"> {Math.round(totalNutrition.carbs)}</span>g Carbs | 
-                        <span title="Fats" className="font-semibold"> {Math.round(totalNutrition.fats)}</span>g Fats
-                    </div>
+                <div className="text-xs text-gray-500">
+                    <span title="Calories" className="font-semibold">{Math.round(totalNutrition.calories)}</span> cal | 
+                    <span title="Protein" className="font-semibold"> {Math.round(totalNutrition.protein)}</span>g Protein | 
+                    <span title="Carbs" className="font-semibold"> {Math.round(totalNutrition.carbs)}</span>g Carbs | 
+                    <span title="Fats" className="font-semibold"> {Math.round(totalNutrition.fats)}</span>g Fats
                 </div>
                 <button
                     onClick={onNavigateToCheckout}
@@ -170,19 +164,14 @@ const CheckoutScreen = ({ order, totalNutrition, onPlaceOrder, onNavigateBack })
             
             <div className="flex-1 space-y-8">
                 <div className="bg-white p-6 rounded-lg shadow-md">
-                    <h2 className="text-2xl font-bold mb-4 border-b pb-3">Your Order</h2>
-                    <ul className="space-y-2">
+                    <h2 className="text-2xl font-bold mb-4 border-b pb-3">Your Custom Bowl</h2>
+                    <ul className="space-y-2 pt-2">
                         {order.map(item => (
-                            <li key={item.name} className="flex justify-between">
+                            <li key={item.name}>
                                 <span>{item.name}</span>
-                                <span className="font-medium">₹{item.price}</span>
                             </li>
                         ))}
                     </ul>
-                    <div className="flex justify-between font-bold text-xl mt-4 pt-4 border-t">
-                        <span>Total</span>
-                        <span>₹{order.reduce((sum, item) => sum + item.price, 0)}</span>
-                    </div>
                 </div>
                 
                 <div className="bg-white p-6 rounded-lg shadow-md">
@@ -250,14 +239,10 @@ const SuccessModal = ({ onOrderAgain }) => (
 function App() {
     const [screen, setScreen] = useState('hero');
     const [selectedItems, setSelectedItems] = useState([]);
-    const [totalPrice, setTotalPrice] = useState(0);
     const [totalNutrition, setTotalNutrition] = useState({ calories: 0, protein: 0, carbs: 0, fats: 0 });
     const [showSuccess, setShowSuccess] = useState(false);
 
     useEffect(() => {
-        const newTotal = selectedItems.reduce((sum, item) => sum + item.price, 0);
-        setTotalPrice(newTotal);
-
         const nutritionTotals = selectedItems.reduce((totals, item) => {
             totals.calories += item.nutrition.calories;
             totals.protein += item.nutrition.protein;
@@ -286,7 +271,6 @@ function App() {
     const handlePlaceOrder = (deliveryDetails) => {
         console.log("Order Placed:", { 
             items: selectedItems, 
-            total: totalPrice, 
             nutrition: totalNutrition,
             details: deliveryDetails 
         });
@@ -305,7 +289,6 @@ function App() {
                 return <SelectionScreen 
                             selectedItems={selectedItems} 
                             onSelectItem={handleSelectItem} 
-                            totalPrice={totalPrice} 
                             totalNutrition={totalNutrition}
                             onNavigateToCheckout={() => setScreen('checkout')} />;
             case 'checkout':
