@@ -120,7 +120,7 @@ const SelectionScreen = ({ selectedItems, onSelectItem, totalNutrition, onNaviga
     return (
         <div className="min-h-screen bg-gray-50 font-sans">
             <div className="container mx-auto p-4 pb-36">
-                <h1 className="text-4xl font-bold text-center my-6 text-gray-800">Build Your Salad</h1>
+                <h1 className="text-4xl font-bold text-center my-6 text-gray-800">Make Your Salad</h1>
                 {renderSection("Choose Your Base", ingredients.bases, 'bases', 1, false)}
                 {renderSection("Select Veggies", ingredients.veggies, 'veggies', VEGGIE_LIMIT)}
                 {renderSection("Add Some Fruits", ingredients.fruits, 'fruits')}
